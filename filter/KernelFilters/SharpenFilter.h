@@ -1,6 +1,6 @@
 #ifndef SHARPENFILTER_H
 #define SHARPENFILTER_H
-#include "KernelFilter.h"
+#include "../KernelFilter.h"
 
 class SharpenFilter : public KernelFilter {
     protected:
