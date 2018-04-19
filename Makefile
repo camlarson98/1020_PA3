@@ -11,6 +11,8 @@ CC 		 :=g++
 CFLAGS :=-Wall -std=c++11 -g
 LFLAGS :=-lm
 
+OUT_IMGS := $(filter-out puppy.ppm, $(wildcard *.ppm))
+
 # Find all possible source files
 CPP_SRCS := $(shell find * -type f -name '*.cpp')
 HDRS 		 := $(shell find * -type f -name '*.h')
@@ -33,6 +35,7 @@ which:
 clean:
 	rm -f $(TARGET)
 	rm -rf $(OBJDIR)
+	rm -f $(OUT_IMGS)
 
 run:
 	./$(TARGET) puppy.ppm doggo.ppm same_pupper.ppm
