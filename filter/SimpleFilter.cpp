@@ -5,3 +5,9 @@ SimpleFilter::SimpleFilter(string name) :
 
 SimpleFilter::~SimpleFilter() {}
 
+void SimpleFilter::swap(Pixel& lhs, Pixel& rhs) const{
+    Pixel tmp;
+    tmp = lhs;
+    lhs = rhs;
+    rhs = tmp;
+}

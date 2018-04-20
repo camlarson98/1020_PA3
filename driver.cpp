@@ -6,13 +6,15 @@
 #include "image/Image.h"
 #include "image/Pixel.h"
 #include "Menu/Menu.h"
+#include "filter/SimpleFilters/HFlipFilter.h"
+#include "filter/SimpleFilters/VFlipFilter.h"
 
 int main(int argc, char* argv[]){
-    Menu menu;
+    /*Menu menu;
     menu.displayMenu();
-    return 0;
+    return 0;*/
     /*bool cont = true;
-    while(cont){
+    while(cont){*/
         //Check for proper usage
         if(argc != 3){
             cerr << "USAGE: ./out <in.ppm> <out.ppm>" << std::endl;
@@ -20,7 +22,7 @@ int main(int argc, char* argv[]){
         }
         // Open input file
         ifstream in(argv[1]);
-        ifstream in2(argv[1]);
+
 
         //Check to see if input file could be opened
         if (!(in)) {
@@ -29,7 +31,7 @@ int main(int argc, char* argv[]){
         }
         // Open output file
         ofstream out(argv[2]);
-        ofstream out2("test.ppm");
+
 
         // Check to see if output file could be opened
         if (!out) {
@@ -39,17 +41,18 @@ int main(int argc, char* argv[]){
 
         // Create input image with input file
         Image puppy(in);
-        Image puppy2(in2);
+
         // Create the filters
-        SharpenFilter sharpFilter("sharpen");
-        BlurFilter blurFilter("blur");
+
+        VFlipFilter VFlip("flip");
 
         // Apply the filters to the input image
-        sharpFilter.apply(puppy2);
-        blurFilter.apply(puppy);
+
+        VFlip.apply(puppy);
+  
         // Write the filtered image to the ouput file
         puppy.write_to(out);
-        puppy2.write_to(out2);
+
 
 
         // Close input and output files
@@ -58,5 +61,5 @@ int main(int argc, char* argv[]){
     
   
         return 0;
-    }*/
+    
 }

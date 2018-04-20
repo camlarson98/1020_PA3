@@ -17,7 +17,8 @@ class SimpleFilter : public Filter {
 		// Pure virtual destructor - makes class abstract
 		virtual ~SimpleFilter() = 0;
 		// applies filter - virtual to require implementation by child classes
-		virtual void apply(Image&) = 0;
+		virtual void apply(Image&) const = 0;
+        virtual void swap(Pixel&, Pixel&) const;
 
 };
 

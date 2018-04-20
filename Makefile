@@ -38,4 +38,4 @@ clean:
 	rm -f $(OUT_IMGS)
 
 run:
-	./$(TARGET) puppy.ppm doggo.ppm same_pupper.ppm
+	./$(TARGET) puppy.ppm out.ppm

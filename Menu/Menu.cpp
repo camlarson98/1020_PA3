@@ -11,4 +11,5 @@ void Menu::displayMenu(){
     while(this->filterType.at(i) != -1){
         cout << "Which filter would you like to use? Enter -1 to exit" << endl;
         cin >> input;
+    }
 }

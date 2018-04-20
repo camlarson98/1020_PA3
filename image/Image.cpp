@@ -6,7 +6,7 @@ Image::Image (const Image& img) :
   HDR(img.header()), PIX(img.pixels()) {}
 Image::~Image () {}
 
-// accessors1
+// accessors
 const Header& Image::header () const { return this->HDR; }
 const vector<Pixel>& Image::pixels () const { return this->PIX; }
 
