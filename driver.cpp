@@ -10,38 +10,39 @@
 #include "filter/SimpleFilters/VFlipFilter.h"
 
 int main(int argc, char* argv[]){
-    /*Menu menu;
-    menu.displayMenu();
-    return 0;*/
+    //Check for proper usage
+    if(argc != 3){
+        cerr << "USAGE: ./out <in.ppm> <out.ppm>" << std::endl;
+        return 1;
+    }
+    // Open input file
+    ifstream in(argv[1]);
+
+
+    //Check to see if input file could be opened
+    if (!(in)) {
+        std::cerr << "ERROR: Could not open input for reading." << std::endl;
+        return 1;
+    }
+    // Open output file
+    ofstream out(argv[2]);
+
+
+    // Check to see if output file could be opened
+    if (!out) {
+        std::cerr << "ERROR: Could not open output for writing." << std::endl;
+        return 1;
+    }
+
+    // Create input image with input file
+    //Image puppy(in);
+
+    Menu menu;
+    menu.displayMenu(in);
+    return 0;
     /*bool cont = true;
-    while(cont){*/
-        //Check for proper usage
-        if(argc != 3){
-            cerr << "USAGE: ./out <in.ppm> <out.ppm>" << std::endl;
-            return 1;
-        }
-        // Open input file
-        ifstream in(argv[1]);
-
-
-        //Check to see if input file could be opened
-        if (!(in)) {
-            std::cerr << "ERROR: Could not open input for reading." << std::endl;
-            return 1;
-        }
-        // Open output file
-        ofstream out(argv[2]);
-
-
-        // Check to see if output file could be opened
-        if (!out) {
-            std::cerr << "ERROR: Could not open output for writing." << std::endl;
-            return 1;
-        }
-
-        // Create input image with input file
-        Image puppy(in);
-
+    while(cont){
+        
         // Create the filters
 
         VFlipFilter VFlip("flip");
@@ -60,6 +61,6 @@ int main(int argc, char* argv[]){
         out.close();
     
   
-        return 0;
+        return 0;*/
     
 }
