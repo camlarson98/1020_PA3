@@ -39,6 +39,8 @@ void Menu::displayMenu(ifstream& in){
     }
     ofstream out("output.ppm");
     puppy.write_to(out);
+    out.close();
+    in.close();
 }
 
 void Menu::addFilter(vector<int> f, Image& img){
@@ -59,6 +61,13 @@ void Menu::addFilter(vector<int> f, Image& img){
             else if(f.at(i) == 4){
                 this->filters.push_back(new VFlipFilter("VFlip"));
                 static_cast<VFlipFilter*>(this->filters.at(i))->apply(img);
+            }
+            else if(f.at(i) == 5){
+                cout << "Please enter the integer rgb values of the colors you want to use." << endl;
+                int r1, g1, b1, r2, g2, b2;
+                cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
+                this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
+                static_cast<BinaryFilter*>(this->filters.at(i))->apply(img);
             }
         /*switch(f.at(i)){
             case 1: this->filters.push_back(new SharpenFilter("Sharp"));

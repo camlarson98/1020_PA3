@@ -25,14 +25,14 @@ int main(int argc, char* argv[]){
         return 1;
     }
     // Open output file
-    ofstream out(argv[2]);
+    //ofstream out(argv[2]);
 
 
     // Check to see if output file could be opened
-    if (!out) {
+    /*if (!out) {
         std::cerr << "ERROR: Could not open output for writing." << std::endl;
         return 1;
-    }
+    }*/
 
     // Create input image with input file
     //Image puppy(in);

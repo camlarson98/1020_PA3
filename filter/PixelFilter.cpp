@@ -7,7 +7,7 @@ PixelFilter::PixelFilter(string name) :
 void PixelFilter::apply(Image& img) const{
     for(int i = 0; i < img.header().height(); i++){
         for(int j = 0; j < img.header().width(); j++){
-            this->apply_transform(img(j, i));
+            img(j, i) = this->apply_transform(img(j, i));
         }
     }
 }
