@@ -39,3 +39,6 @@ clean:
 
 run:
 	./$(TARGET) puppy.ppm out.ppm
+
+love:
+	@echo "not war"
