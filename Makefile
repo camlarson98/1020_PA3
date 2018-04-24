@@ -38,7 +38,7 @@ clean:
 	rm -f $(OUT_IMGS)
 
 run:
-	./$(TARGET) puppy.ppm out.ppm
+	./$(TARGET) puppy.ppm
 
 love:
 	@echo "not war"

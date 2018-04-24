@@ -3,6 +3,7 @@
 #include <vector>
 #include <iomanip>
 #include <iostream>
+#include <sstream>
 #include "../filter/KernelFilters/BlurFilter.h"
 #include "../filter/KernelFilters/SharpenFilter.h"
 #include "../filter/SimpleFilters/HFlipFilter.h"
@@ -22,9 +23,9 @@ class Menu {
         Menu();
         ~Menu();
         void displayMenu(ifstream&);
-        void addFilter(vector<int>, Image&);
+        void addFilter(int);
         int getFilter();
-        void applyFilters(int, Image&);
+        void applyFilters(Image&);
 
 };
 

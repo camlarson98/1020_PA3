@@ -11,8 +11,8 @@
 
 int main(int argc, char* argv[]){
     //Check for proper usage
-    if(argc != 3){
-        cerr << "USAGE: ./out <in.ppm> <out.ppm>" << std::endl;
+    if(argc != 2){
+        cerr << "USAGE: ./out <in.ppm>" << std::endl;
         return 1;
     }
     // Open input file
