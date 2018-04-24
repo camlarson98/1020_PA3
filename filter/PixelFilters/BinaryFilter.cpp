@@ -9,7 +9,7 @@
     this->color2 = stringConvert(second);
 }*/
 
-BinaryFilter::BinaryFilter(int red1, int green1, int blue1, int red2, int green2, int blue2) {
+BinaryFilter::BinaryFilter(int red1, int green1, int blue1, int red2, int green2, int blue2) : PixelFilter(name) {
     this->color1 = Pixel(red1, green1, blue1);
     this->color2 = Pixel(red2, green2, blue2);
 }
@@ -46,3 +46,7 @@ BinaryFilter::BinaryFilter(int red1, int green1, int blue1, int red2, int green2
         }
     return pix;
 }*/
+
+Pixel BinaryFilter::apply_transform(const Pixel& pix) const{
+
+}
