@@ -64,20 +64,20 @@ void Menu::displayMenu(ifstream& in){
         img.write_to(out);
         out.close();
 
-        //  Test if user wants to create another output image
+        // Test if user wants to create another output image
         cout << "Make another image? Enter y or n" << endl;
         bool valid = false;
-        //  Loop to make sure user answer is valid
+        // Loop to make sure user answer is valid
         while(!valid){
-            //  Clear c
+            // Clear c
             c = 0;
-            //  Get user answer
+            // Get user answer
             cin >> c;
-            //  If user wants to continue
+            // If user wants to continue
             if(c == 'y'){
-                //  Update to exit loop
+                // Update to exit loop
                 valid = true;
-                //  Reset i to 0
+                // Reset i to 0
                 i = 0;
                 // Clear filters vector
                 this->filters.clear();
@@ -87,17 +87,17 @@ void Menu::displayMenu(ifstream& in){
                 in.seekg(0, ios::beg);
 
             }
-                //  If user wants to exit
+                // If user wants to exit
                 else if(c == 'n'){
                     valid = true;
                 }
-                //  User input invalid
+                // User input invalid
                 else{
                     cout << "Invalid input. Please enter y or n" << endl;
                 }
         }
     }
-    //  Close input file
+    // Close input file
     in.close();
 }
 
@@ -132,7 +132,7 @@ void Menu::addFilter(int f){
 
 void Menu::applyFilters(Image& img){
     unsigned int i = 0;
-    //  Applies each filter individually
+    // Applies each filter individually
     while(i < this->filters.size()){
         this->filters.at(i)->apply(img);
         i++;
