@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "iomanip": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "cmath": "cpp"
     }
 }
