@@ -131,6 +131,9 @@ void Menu::addFilter(int f){
     else if(f == 6){
         this->filters.push_back(new GrayScaleFilter(""));
     }
+    else if(f == 7){
+        this->filters.push_back(new SepiaFilter(""));
+    }
 }
 
 void Menu::applyFilters(Image& img){

@@ -22,8 +22,6 @@ class BinaryFilter : public PixelFilter {
         BinaryFilter(int, int, int, int, int, int);
         virtual Pixel apply_transform(const Pixel&) const;
 
-        Pixel& stringConvert(string);
-
 };
 
 
