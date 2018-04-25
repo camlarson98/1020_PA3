@@ -1,13 +1,4 @@
-#include "filter/Filter.h"
-#include "filter/KernelFilter.h"
-#include "filter/KernelFilters/SharpenFilter.h"
-#include "filter/KernelFilters/BlurFilter.h"
-#include "image/Header.h"
-#include "image/Image.h"
-#include "image/Pixel.h"
-#include "Menu/Menu.h"
-#include "filter/SimpleFilters/HFlipFilter.h"
-#include "filter/SimpleFilters/VFlipFilter.h"
+#include "menu/Menu.h"
 
 int main(int argc, char* argv[]){
     //Check for proper usage
@@ -42,7 +33,7 @@ int main(int argc, char* argv[]){
     return 0;
     /*bool cont = true;
     while(cont){
-        
+
         // Create the filters
 
         VFlipFilter VFlip("flip");
@@ -50,7 +41,7 @@ int main(int argc, char* argv[]){
         // Apply the filters to the input image
 
         VFlip.apply(puppy);
-  
+
         // Write the filtered image to the ouput file
         puppy.write_to(out);
 
@@ -59,8 +50,8 @@ int main(int argc, char* argv[]){
         // Close input and output files
         in.close();
         out.close();
-    
-  
+
+
         return 0;*/
-    
+
 }
