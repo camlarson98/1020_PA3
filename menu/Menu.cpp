@@ -128,6 +128,9 @@ void Menu::addFilter(int f){
         this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
         // static_cast<BinaryFilter*>(this->filters.at(i))->apply(img);
     }
+    else if(f == 6){
+        this->filters.push_back(new GrayScaleFilter(""));
+    }
 }
 
 void Menu::applyFilters(Image& img){
