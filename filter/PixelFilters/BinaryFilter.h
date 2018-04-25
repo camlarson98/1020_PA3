@@ -2,25 +2,24 @@
 #define BINARYFILTER_H
 #include "../PixelFilter.h"
 
-/*Pixel WHITE(255, 255, 255);
-Pixel BLACK(0, 0, 0);
-Pixel RED(255, 0, 0);
-Pixel YELLOW(255, 255, 0);
-Pixel GREEN(0, 255, 255);
-Pixel BLUE(0, 0, 255);
-Pixel PURPLE(255, 0, 255);
-Pixel ORANGE(255, 165, 0);*/
-
 class BinaryFilter : public PixelFilter {
     private:
+        // Default and copy constructor - unused
         BinaryFilter();
         BinaryFilter(const BinaryFilter&);
+        // "Pixels" to hold values of the colors to be applied
         Pixel color1, color2;
 
     public:
+        // Parameter constructor with just an input name
         BinaryFilter(string);
+        // Parameter constructor with input ints for the 
+        // colors to be applied to the image
         BinaryFilter(int, int, int, int, int, int);
+        // Applies colors to pixels based on luminance
         virtual Pixel apply_transform(const Pixel&) const;
+        // Virtual destructor
+        ~BinaryFilter();
 
 };
 

@@ -1,9 +1,15 @@
 #include "SepiaFilter.h"
 
+// Parameter constructor with initializer list for name
 SepiaFilter::SepiaFilter(string name) : PixelFilter(name) {
 
 }
 
+// Default destructor
+SepiaFilter::~SepiaFilter() {}
+
+// Takes input pixel and returns the respective value of that pixel
+// in sepia
 Pixel SepiaFilter::apply_transform(const Pixel& pix) const{
     double red, green, blue;
     double outR, outG, outB;

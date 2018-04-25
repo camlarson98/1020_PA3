@@ -58,6 +58,10 @@ void Menu::displayMenu(ifstream& in){
         ss << "EC_" << n << ".ppm";
         // Open output file
         ofstream out(ss.str());
+        if(!out){
+            cerr << "Could not open output file. Exiting..." << endl;
+            exit(0);
+        }
         // Clear stringstream to be used again
         ss.clear();
         // Write image to output file and close output file
@@ -104,21 +108,16 @@ void Menu::displayMenu(ifstream& in){
 
 void Menu::addFilter(int f){
     if(f == 1){
-        // SharpenFilter Sharp("");
         this->filters.push_back(new SharpenFilter(""));
-        // static_cast<SharpenFilter*>(this->filters.at(i))->apply(img);
     }
     else if(f == 2){
         this->filters.push_back(new BlurFilter(""));
-        // static_cast<BlurFilter*>(this->filters.at(i))->apply(img);
     }
     else if(f == 3){
         this->filters.push_back(new HFlipFilter(""));
-        // static_cast<HFlipFilter*>(this->filters.at(i))->apply(img);
     }
     else if(f == 4){
         this->filters.push_back(new VFlipFilter(""));
-        // static_cast<VFlipFilter*>(this->filters.at(i))->apply(img);
     }
     else if(f == 5){
         cout << "Please enter the integer rgb values of the colors " <<
@@ -126,7 +125,6 @@ void Menu::addFilter(int f){
         int r1, g1, b1, r2, g2, b2;
         cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
         this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
-        // static_cast<BinaryFilter*>(this->filters.at(i))->apply(img);
     }
     else if(f == 6){
         this->filters.push_back(new GrayScaleFilter(""));

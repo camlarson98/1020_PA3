@@ -18,6 +18,7 @@ class SimpleFilter : public Filter {
 		virtual ~SimpleFilter() = 0;
 		// applies filter - virtual to require implementation by child classes
 		virtual void apply(Image&) const = 0;
+		// Swaps the two input pixels
         virtual void swap(Pixel&, Pixel&) const;
 
 };
