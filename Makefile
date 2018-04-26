@@ -11,7 +11,7 @@ CC 		 :=g++
 CFLAGS :=-Wall -std=c++11 -g
 LFLAGS :=-lm
 
-OUT_IMGS := $(filter-out puppy.ppm, $(wildcard *.ppm))
+OUT_IMGS := $(filter-out input.ppm, $(wildcard *.ppm))
 
 # Find all possible source files
 CPP_SRCS := $(shell find * -type f -name '*.cpp')
@@ -38,7 +38,7 @@ clean:
 	rm -f $(OUT_IMGS)
 
 run:
-	./$(TARGET) puppy.ppm
+	./$(TARGET) input.ppm
 
 love:
 	@echo "not war"

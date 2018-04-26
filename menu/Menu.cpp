@@ -105,7 +105,8 @@ void Menu::displayMenu(ifstream& in){
     in.close();
 }
 
-
+// Takes the inputted int and adds the appropriate filter
+// to the vector of Filter*
 void Menu::addFilter(int f){
     if(f == 1){
         this->filters.push_back(new SharpenFilter(""));
@@ -120,8 +121,9 @@ void Menu::addFilter(int f){
         this->filters.push_back(new VFlipFilter(""));
     }
     else if(f == 5){
-        cout << "Please enter the integer rgb values of the colors " <<
-                "you want to use." << endl;
+        cout << "Please enter the integer rgb values between 0 " <<
+                "and 255 of the colors you want to use. " << 
+                "Integers not in this range will be clamped." << endl;
         int r1, g1, b1, r2, g2, b2;
         cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
         this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
