@@ -1,3 +1,8 @@
+/* Trey Brazil & Cameron Larson
+ * CPSC 1020-001, SP18
+ * rbrazil@clemson.edu clarson@clemson.edu
+ */
+
 #include "menu/Menu.h"
 
 int main(int argc, char* argv[]){
