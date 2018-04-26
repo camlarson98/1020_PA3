@@ -8,7 +8,7 @@ void Menu::displayMenu(ifstream& in){
     // Variables for loops and tests
     int i = 0, n = 0;
     char c = 'y';
-    // Needs to be fancied up
+
     cout << endl << "###-----------| Welcome |-----------###" << endl;
 
     // Master loop takes in images until user terminates (n)
@@ -48,6 +48,9 @@ void Menu::displayMenu(ifstream& in){
             }
             // Catch any invalid inputs
             else{
+                // Skip past a single line of invalid input
+                cin.clear();
+                cin.ignore(999, '\n');
                 cout << "Invalid number entered. Please try again." << endl;
             }
         }
@@ -122,7 +125,7 @@ void Menu::addFilter(int f){
     }
     else if(f == 5){
         cout << "Please enter the integer rgb values between 0 " <<
-                "and 255 of the colors you want to use. " << 
+                "and 255 of the colors you want to use. " <<
                 "Integers not in this range will be clamped." << endl;
         int r1, g1, b1, r2, g2, b2;
         cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;

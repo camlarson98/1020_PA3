@@ -13,8 +13,7 @@ class BinaryFilter : public PixelFilter {
     public:
         // Parameter constructor with just an input name
         BinaryFilter(string);
-        // Parameter constructor with input ints for the 
-        // colors to be applied to the image
+        // Parameter constructor with input ints for the filter colors
         BinaryFilter(int, int, int, int, int, int);
         // Applies colors to pixels based on luminance
         virtual Pixel apply_transform(const Pixel&) const;

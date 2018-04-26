@@ -17,8 +17,8 @@ int main(int argc, char* argv[]){
 
     // Create an instance of a Menu class
     Menu menu;
-    // Performs the rest of the work basically for this program
+    // Display menu, which takes in image, applies filters, and writes
     menu.displayMenu(in);
     return 0;
-    
+
 }

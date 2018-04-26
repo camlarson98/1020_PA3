@@ -6,15 +6,19 @@ BinaryFilter::BinaryFilter(string name) : PixelFilter(name) {}
 // Default destructor
 BinaryFilter::~BinaryFilter() {}
 
-// Parameter constructor with rgb values of the two colors for the filter as parameters
-BinaryFilter::BinaryFilter(int red1, int green1, int blue1, int red2, int green2, int blue2) : PixelFilter(name) {
-    // Make sure all input values fit in 0 to 255 range
+// Parameter constructor with rgb values of the two colors
+// for the filter as parameters
+BinaryFilter::BinaryFilter(int red1, int green1, int blue1, int red2,
+        int green2, int blue2) : PixelFilter(name) {
+    // Clamp values to 0-255 range
     red1 = Filter::clamp(0, 255, red1);
     green1 = Filter::clamp(0, 255, green1);
     blue1 = Filter::clamp(0, 255, blue1);
     red2 = Filter::clamp(0, 255, red2);
     green2 = Filter::clamp(0, 255, green2);
     blue2 = Filter::clamp(0, 255, blue2);
+
+    //Assign clamped colors for filter
     this->color1 = Pixel(red1, green1, blue1);
     this->color2 = Pixel(red2, green2, blue2);
 }

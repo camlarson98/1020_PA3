@@ -31,6 +31,7 @@ Pixel SepiaFilter::apply_transform(const Pixel& pix) const{
     outR *= 255;
     outG *= 255;
     outB *= 255;
+    
     // Make sure output values fit in 0 to 255 range
     outR = Filter::clamp(0.0, 255.0, outR);
     outG = Filter::clamp(0.0, 255.0, outG);
