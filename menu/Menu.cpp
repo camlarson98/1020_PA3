@@ -21,7 +21,7 @@ void Menu::displayMenu(ifstream& in){
         cout << "=======================================" << endl
              << "| Which filter would you like to use? |" << endl
              << "|  You may use the same filter more   |" << endl
-             << "|              than once.             |"
+             << "|             than once.              |"
              << "|       Enter -1 when finished        |" << endl
              << "=======================================" << endl
              << "|    1) Sharpen                       |" << endl
