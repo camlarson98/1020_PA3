@@ -96,14 +96,14 @@ void Menu::displayMenu(ifstream& in){
                 in.seekg(0, ios::beg);
 
             }
-                // If user wants to exit
-                else if(c == 'n'){
-                    valid = true;
-                }
-                // User input invalid
-                else{
-                    cout << "Invalid input. Please enter y or n" << endl;
-                }
+            // If user wants to exit
+            else if(c == 'n'){
+                valid = true;
+            }
+            // User input invalid
+            else{
+                cout << "Invalid input. Please enter y or n" << endl;
+            }
         }
     }
     // Close input file
@@ -113,6 +113,7 @@ void Menu::displayMenu(ifstream& in){
 // Takes the inputted int and adds the appropriate filter
 // to the vector of Filter*
 void Menu::addFilter(int f){
+    bool v = 0;
     // Add a sharpen filter
     if(f == 1){
         this->filters.push_back(new SharpenFilter(""));
@@ -131,12 +132,23 @@ void Menu::addFilter(int f){
     }
     // Add a Binary Filter and get user colors
     else if(f == 5){
-        cout << "Please enter the integer rgb values between 0 " <<
-                "and 255 of the colors you want to use. " <<
-                "Integers not in this range will be clamped." << endl;
-        int r1, g1, b1, r2, g2, b2;
-        cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
-        this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
+        while(!v){
+            cout << "Please enter the integer rgb values between 0 " <<
+                    "and 255 of the colors you want to use. " <<
+                    "Integers not in this range will be clamped." << endl;
+            int r1, g1, b1, r2, g2, b2;
+            cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
+            if(!cin){
+                // Skip past a single line of invalid input
+                cin.clear();
+                cin.ignore(999, '\n');
+                cout << "Invalid input. Please try again." << endl;
+            }
+            else{
+              this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
+              v = 1;
+            }
+        }
     }
     // Add a GrayScale filter
     else if(f == 6){
@@ -148,7 +160,7 @@ void Menu::addFilter(int f){
     }
 }
 
-// Takes the input image and applies the filters from the 
+// Takes the input image and applies the filters from the
 // vector of Filter* with polymorphism
 void Menu::applyFilters(Image& img){
     unsigned int i = 0;
