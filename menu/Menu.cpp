@@ -111,18 +111,23 @@ void Menu::displayMenu(ifstream& in){
 // Takes the inputted int and adds the appropriate filter
 // to the vector of Filter*
 void Menu::addFilter(int f){
+    // Add a sharpen filter
     if(f == 1){
         this->filters.push_back(new SharpenFilter(""));
     }
+    // Add a blur filter
     else if(f == 2){
         this->filters.push_back(new BlurFilter(""));
     }
+    // Add an HFlipFilter
     else if(f == 3){
         this->filters.push_back(new HFlipFilter(""));
     }
+    // Add a VFlipFilter
     else if(f == 4){
         this->filters.push_back(new VFlipFilter(""));
     }
+    // Add a Binary Filter and get user colors
     else if(f == 5){
         cout << "Please enter the integer rgb values between 0 " <<
                 "and 255 of the colors you want to use. " <<
@@ -131,14 +136,18 @@ void Menu::addFilter(int f){
         cin >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
         this->filters.push_back(new BinaryFilter(r1, g1, b1, r2, g2, b2));
     }
+    // Add a GrayScale filter
     else if(f == 6){
         this->filters.push_back(new GrayScaleFilter(""));
     }
+    // Add a Sepia filter
     else if(f == 7){
         this->filters.push_back(new SepiaFilter(""));
     }
 }
 
+// Takes the input image and applies the filters from the 
+// vector of Filter* with polymorphism
 void Menu::applyFilters(Image& img){
     unsigned int i = 0;
     // Applies each filter individually
